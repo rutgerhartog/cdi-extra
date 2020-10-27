@@ -9,14 +9,20 @@ RUN wget -qO - https://packagecloud.io/AtomEditor/atom/gpgkey | apt-key add - \
 && apt-get clean && apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
   atom \
   firefox-esr \
-  python-pip \
+  python3-pip \
   texlive-full
 
 USER 1337
+
+# Override pythontex to use Python 3 instead of 2 (which throws Pickle errors)
+RUN cat <<EOF >> ~/.bashrc
+alias pythontex="pythontex3"
+EOF
+
 # Install atom packages
 RUN apm install \
   language-latex \
   latex \
   pdf-view
 
-RUN pip install pygments 
+RUN pip3 install pygments
