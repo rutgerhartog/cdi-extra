@@ -15,9 +15,9 @@ RUN wget -qO - https://packagecloud.io/AtomEditor/atom/gpgkey | apt-key add - \
 USER 1337
 
 # Override pythontex to use Python 3 instead of 2 (which throws Pickle errors)
-RUN cat <<EOF >> ~/.bashrc
-alias pythontex="pythontex3"
-EOF
+COPY pythontex /tmp/pythontex
+RUN cat /tmp/pythontex >> ~/.bashrc && rm /tmp/pythontex
+
 
 # Install atom packages
 RUN apm install \
