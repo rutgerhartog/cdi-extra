@@ -9,6 +9,7 @@ RUN wget -qO - https://packagecloud.io/AtomEditor/atom/gpgkey | apt-key add - \
 && apt-get clean && apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
   atom \
   firefox-esr \
+  python-pip \
   texlive-full
 
 USER 1337
@@ -17,3 +18,5 @@ RUN apm install \
   language-latex \
   latex \
   pdf-view
+
+RUN pip install pygments 
