@@ -16,8 +16,7 @@ USER 1337
 
 # Override pythontex to use Python 3 instead of 2 (which throws Pickle errors)
 COPY pythontex /tmp/pythontex
-RUN cat /tmp/pythontex >> ~/.bashrc && rm /tmp/pythontex
-
+RUN cat /tmp/pythontex >> ~/.bashrc
 
 # Install atom packages
 RUN apm install \
