@@ -11,10 +11,10 @@ RUN wget -qO - https://packagecloud.io/AtomEditor/atom/gpgkey | apt-key add - \
   texlive-full
 
 # Override pythontex to use Python 3 instead of 2 (which throws Pickle errors)
-USER 1337
 COPY pythontex /usr/bin/pythontex
 RUN chmod +x /usr/bin/pythontex
 
+USER 1337
 # Install atom packages
 RUN apm install \
   language-latex \
