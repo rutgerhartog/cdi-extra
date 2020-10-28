@@ -1,1 +1,5 @@
-alias pythontex="pythontex3"
+#!/usr/bin/python3
+import pythontex3 as pythontex
+
+if __name__ == '__main__':
+  pythontex.main()
