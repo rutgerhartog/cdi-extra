@@ -8,16 +8,18 @@ RUN wget -qO - https://packagecloud.io/AtomEditor/atom/gpgkey | apt-key add - \
   atom \
   firefox-esr \
   python3-pip \
+  remmina \
   texlive-full
 
 # Override pythontex to use Python 3 instead of 2 (which throws Pickle errors)
-RUN rm /usr/bin/pythontex && ln -s /usr/bin/pythontex3 /usr/bin/pythontex 
+RUN rm /usr/bin/pythontex && ln -s /usr/bin/pythontex3 /usr/bin/pythontex
 
 USER 1337
 # Install atom packages
 RUN apm install \
   language-latex \
   latex \
-  pdf-view
+  pdf-view \
+  pen-paper-coffee-syntax
 
 RUN pip3 install pygments pyyaml
