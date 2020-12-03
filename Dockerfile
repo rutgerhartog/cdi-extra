@@ -7,6 +7,7 @@ RUN wget -qO - https://packagecloud.io/AtomEditor/atom/gpgkey | apt-key add - \
 && apt-get clean && apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
   atom \
   firefox \
+  ldap-utils \
   python3-pip \
   remmina \
   texlive-full \
