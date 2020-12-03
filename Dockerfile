@@ -1,4 +1,4 @@
-FROM rutgerhartog/cdi
+FROM rutgerhartog/cdi:ubuntu
 
 # Install atom, firefox and texlive-full
 USER root
@@ -9,7 +9,9 @@ RUN wget -qO - https://packagecloud.io/AtomEditor/atom/gpgkey | apt-key add - \
   firefox-esr \
   python3-pip \
   remmina \
-  texlive-full
+  texlive-full \
+  wireshark \
+&& adduser user wireshark
 
 # Override pythontex to use Python 3 instead of 2 (which throws Pickle errors)
 RUN rm /usr/bin/pythontex && ln -s /usr/bin/pythontex3 /usr/bin/pythontex
@@ -17,6 +19,7 @@ RUN rm /usr/bin/pythontex && ln -s /usr/bin/pythontex3 /usr/bin/pythontex
 USER 1337
 # Install atom packages
 RUN apm install \
+  git-clone \
   language-latex \
   latex \
   pdf-view \
