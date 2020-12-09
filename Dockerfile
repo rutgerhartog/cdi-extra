@@ -9,7 +9,9 @@ RUN wget -qO - https://packagecloud.io/AtomEditor/atom/gpgkey | apt-key add - \
   firefox-esr \
   python3-pip \
   remmina \
-  texlive-full
+  texlive-full \
+  wireshark \
+&& adduser user wireshark
 
 # Override pythontex to use Python 3 instead of 2 (which throws Pickle errors)
 RUN rm /usr/bin/pythontex && ln -s /usr/bin/pythontex3 /usr/bin/pythontex
