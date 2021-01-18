@@ -6,9 +6,7 @@ RUN wget -qO - https://packagecloud.io/AtomEditor/atom/gpgkey | apt-key add - \
 && echo "deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main" > /etc/apt/sources.list.d/atom.list \
 && apt-get clean && apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
   atom \
-  default-jdk \
   firefox-esr \
-  ldap-utils \
   python3-pip \
   remmina \
   sudo \
