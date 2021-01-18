@@ -8,6 +8,7 @@ RUN wget -qO - https://packagecloud.io/AtomEditor/atom/gpgkey | apt-key add - \
   atom \
   default-jdk \
   firefox-esr \
+  ldap-utils \
   python3-pip \
   remmina \
   sudo \
