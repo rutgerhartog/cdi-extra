@@ -20,6 +20,7 @@ RUN rm /usr/bin/pythontex && ln -s /usr/bin/pythontex3 /usr/bin/pythontex
 USER 1337
 # Install atom packages
 RUN apm install \
+  git-clone \
   language-latex \
   latex \
   pdf-view \
