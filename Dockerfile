@@ -4,7 +4,7 @@ FROM rutgerhartog/cdi
 USER root
 RUN wget -qO - https://packagecloud.io/AtomEditor/atom/gpgkey | apt-key add - \
 && echo "deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main" > /etc/apt/sources.list.d/atom.list \
-&& apt-get clean && apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
+&& apt-get clean && apt-get update && DEBIAN_FRONTEND=noninteractive apt-get upgrade -y && DEBIAN_FRONTEND=noninteractive apt-get install -y \
   atom \
   firefox-esr \
   python3-pip \
@@ -12,6 +12,9 @@ RUN wget -qO - https://packagecloud.io/AtomEditor/atom/gpgkey | apt-key add - \
   sudo \
   texlive-full \
   wireshark
+
+# Download kubectl binary
+RUN curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" && mv kubectl /usr/local/bin/kubectl && chmod +x /usr/local/bin/kubectl
 
 # Override pythontex to use Python 3 instead of 2 (which throws Pickle errors)
 RUN rm /usr/bin/pythontex && ln -s /usr/bin/pythontex3 /usr/bin/pythontex
@@ -23,6 +26,7 @@ RUN apm install \
   language-latex \
   latex \
   pdf-view \
-  pen-paper-coffee-syntax
+  pen-paper-coffee-syntax \
+  spell-check
 
 RUN pip3 install pygments pyyaml
