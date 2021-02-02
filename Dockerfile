@@ -19,14 +19,18 @@ RUN curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/s
 # Override pythontex to use Python 3 instead of 2 (which throws Pickle errors)
 RUN rm /usr/bin/pythontex && ln -s /usr/bin/pythontex3 /usr/bin/pythontex
 
+# Switch user
 USER 1337
+
 # Install atom packages
 RUN apm install \
+  atom-material-ui \
+  atom-material-syntax \
   git-clone \
   language-latex \
   latex \
   pdf-view \
-  pen-paper-coffee-syntax \
+  script \
   spell-check
 
 RUN pip3 install pygments pyyaml
