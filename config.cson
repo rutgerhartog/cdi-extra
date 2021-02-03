@@ -1,0 +1,15 @@
+"*":
+  core:
+    telemetryConsent: "no"
+    themes: [
+      "atom-material-ui"
+      "atom-material-syntax"
+    ]
+  "exception-reporting":
+    userId: "74cc475d-f0d6-41c3-bbcd-1c473cc973a7"
+  "spell-check":
+    locales: [
+      "en-US.UTF-8 UTF-8"
+      "en-GB.UTF-8 UTF-8"
+      "nl-NL.UTF-8 UTF-8"
+    ]

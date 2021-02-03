@@ -1,0 +1,9 @@
+#!/bin/bash
+rm -rf main{-cache.yaml,.aux,.fls,.log,.out,.pdf,.pytxcode,.synctex.gz,.toc} *.pyc, pythontex-files-main/* __pycache__/ *.log
+
+echo "Date: $(date)" > compile.log
+repo=$(grep url ../.git/config | awk -F"= " '{print $2}')
+echo "Repo: ${repo}" >> compile.log
+cp compile.log error.log
+
+pdflatex main.tex >> compile.log 2>> error.log && pythontex main >> compile.log 2>> error.log && pdflatex main.tex >> compile.log 2>> error.log && pdflatex main.tex >> compile.log 2>> error.log
