@@ -26,11 +26,10 @@ USER 1337
 RUN apm install \
   atom-material-ui \
   atom-material-syntax \
+  build \
+  busy-signal \
   git-clone \
-  language-latex \
-  latex \
   pdf-view \
-  script \
   spell-check
 
 RUN pip3 install pygments pyyaml
